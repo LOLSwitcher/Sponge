@@ -24,12 +24,14 @@
  */
 package org.spongepowered.mod.interfaces;
 
-import net.minecraft.world.storage.WorldInfo;
-import org.spongepowered.mod.configuration.SpongeConfig;
+import org.spongepowered.api.service.persistence.data.DataContainer;
+import org.spongepowered.api.world.gen.WorldGenerator;
 
-public interface IMixinWorld {
+import java.util.concurrent.Callable;
 
-    SpongeConfig<SpongeConfig.WorldConfig> getWorldConfig();
+public interface IMixinWorldType {
 
-    void setWorldInfo(WorldInfo worldInfo);
+    void setWorldGenerator(Callable<WorldGenerator> generator);
+
+    void setGeneratorSettings(DataContainer settings);
 }

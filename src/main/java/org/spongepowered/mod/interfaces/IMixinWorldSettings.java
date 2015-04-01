@@ -24,12 +24,18 @@
  */
 package org.spongepowered.mod.interfaces;
 
-import net.minecraft.world.storage.WorldInfo;
-import org.spongepowered.mod.configuration.SpongeConfig;
+import org.spongepowered.api.service.persistence.data.DataContainer;
+import org.spongepowered.api.world.DimensionType;
 
-public interface IMixinWorld {
+public interface IMixinWorldSettings {
 
-    SpongeConfig<SpongeConfig.WorldConfig> getWorldConfig();
+    void setDimensionType(DimensionType type);
 
-    void setWorldInfo(WorldInfo worldInfo);
+    void setGeneratorSettings(DataContainer generatorSettings);
+
+    void setEnabled(boolean isWorldEnabled);
+
+    void setLoadOnStartup(boolean loadOnStartup);
+
+    void setKeepSpawnLoaded(boolean keepSpawnLoaded);
 }
